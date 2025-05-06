@@ -1,0 +1,414 @@
+Microsoft Windows [Version 10.0.26100.3775]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\isubh>docker --version
+Docker version 27.4.0, build bde2b89
+
+C:\Users\isubh>docker pull openjdk
+Using default tag: latest
+latest: Pulling from library/openjdk
+95a27dbe0150: Download complete
+197c1adcd755: Download complete
+57b698b7af4b: Download complete
+Digest: sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f
+Status: Downloaded newer image for openjdk:latest
+docker.io/library/openjdk:latest
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+openjdk                    latest    9b448de897d2   2 years ago     727MB
+
+C:\Users\isubh>docker run
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Create and run a new container from an image
+
+C:\Users\isubh>docker run -it openjdk
+May 06, 2025 6:10:12 PM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+|  Welcome to JShell -- Version 18.0.2.1
+|  For an introduction type: /help intro
+
+jshell> System.out.println("Hello World");
+Hello World
+
+jshell> int a=5;
+a ==> 5
+
+jshell> int b=8;
+b ==> 8
+
+jshell> System.out.println("Sum : "+ a+b);
+Sum : 58
+
+jshell> System.out.println("Sum : "+ (a+b));
+Sum : 13
+
+jshell> /exit
+|  Goodbye
+
+C:\Users\isubh>Love u
+'Love' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\isubh>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\isubh>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                      PORTS     NAMES
+512e85469c2c   openjdk                           "jshell"                 2 minutes ago   Exited (0) 50 seconds ago             thirsty_lederberg
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago               Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago               welcome-to-docker
+
+C:\Users\isubh>docker rm 512
+512
+
+C:\Users\isubh>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\isubh>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED        STATUS                    PORTS     NAMES
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago   Exited (0) 3 months ago             Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago   Exited (0) 3 months ago             welcome-to-docker
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+openjdk                    latest    9b448de897d2   2 years ago     727MB
+
+C:\Users\isubh>docker prune
+docker: 'prune' is not a docker command.
+See 'docker --help'
+
+C:\Users\isubh>docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Authenticate to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  ai*         Ask Gordon - Docker Agent
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands (Beta)
+  dev*        Docker Dev Environments
+  extension*  Manages Docker extensions
+  feedback*   Provide feedback, right in your terminal!
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image
+  scout*      Docker Scout
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\isubh\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\isubh\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\isubh\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\isubh\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+
+C:\Users\isubh>docker rmi openjdk
+Untagged: openjdk:latest
+Deleted: sha256:9b448de897d211c9e0ec635a485650aed6e28d4eca1efbc34940560a480b3f1f
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>docker run node
+Unable to find image 'node:latest' locally
+latest: Pulling from library/node
+1488e2b0ebda: Download complete
+cf05a52c0235: Download complete
+63964a8518f5: Download complete
+ca513cad200b: Download complete
+c187b51b626e: Download complete
+cca4aac67e85: Download complete
+2528187cde48: Download complete
+07075481b459: Download complete
+Digest: sha256:ee8a0bc5bbaece0c538c76e7c20fde6d4db319bbd5d4e423940999f16da89aa1
+Status: Downloaded newer image for node:latest
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+node                       latest    ee8a0bc5bbae   5 weeks ago     1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>docker run -it node
+Welcome to Node.js v23.11.0.
+Type ".help" for more information.
+> console.log("Subham");
+Subham
+undefined
+> int a = 5;
+int a = 5;
+    ^
+
+Uncaught SyntaxError: Unexpected identifier 'a'
+> a = 5;
+5
+> b = 8;
+8
+> console.log(a+b);
+13
+undefined
+> console.log(a+b)
+13
+undefined
+> a+b
+13
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+C:\Users\isubh>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                          PORTS     NAMES
+e303f445977b   node                              "docker-entrypoint.s…"   3 minutes ago   Exited (0) About a minute ago             priceless_einstein
+88cb75b8207b   node                              "docker-entrypoint.s…"   4 minutes ago   Exited (0) 4 minutes ago                  agitated_elbakyan
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago                   Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago                   welcome-to-docker
+
+C:\Users\isubh>docker rm e
+e
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+node                       latest    ee8a0bc5bbae   5 weeks ago     1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>docker rmi node
+Error response from daemon: conflict: unable to delete node:latest (must be forced) - container 88cb75b8207b is using its referenced image ee8a0bc5bbae
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+node                       latest    ee8a0bc5bbae   5 weeks ago     1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                     PORTS     NAMES
+88cb75b8207b   node                              "docker-entrypoint.s…"   4 minutes ago   Exited (0) 4 minutes ago             agitated_elbakyan
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago              Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago              welcome-to-docker
+
+C:\Users\isubh>docker rm 88
+88
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+node                       latest    ee8a0bc5bbae   5 weeks ago     1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>docker rmi node
+Untagged: node:latest
+Deleted: sha256:ee8a0bc5bbaece0c538c76e7c20fde6d4db319bbd5d4e423940999f16da89aa1
+
+C:\Users\isubh>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh>mkdir
+The syntax of the command is incorrect.
+
+C:\Users\isubh>mkdir dockertest
+
+C:\Users\isubh>cd dockertest
+
+C:\Users\isubh\dockertest>docker init
+
+Welcome to the Docker Init CLI!
+
+This utility will walk you through creating the following files with sensible defaults for your project:
+  - .dockerignore
+  - Dockerfile
+  - compose.yaml
+  - README.Docker.md
+
+Let's get started!
+
+? What application platform does your project use? Other
+
+✔ Created → .dockerignore
+✔ Created → Dockerfile
+✔ Created → compose.yaml
+✔ Created → README.Docker.md
+
+→ Your Docker files are ready!
+  Review your Docker files and tailor them to your application.
+  Consult README.Docker.md for information about using the generated files.
+
+What's next?
+  Start your application by running → docker compose up --build
+
+C:\Users\isubh\dockertest>code .
+
+C:\Users\isubh\dockertest>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED         SIZE
+myapp                      latest    ac7cccb3a633   5 minutes ago   1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago    381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago   29.5MB
+
+C:\Users\isubh\dockertest>docker run myapp
+
+C:\Users\isubh\dockertest>docker run -it myapp
+Welcome to Node.js v22.15.0.
+Type ".help" for more information.
+>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+C:\Users\isubh\dockertest>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS                      PORTS     NAMES
+c95a46cf850a   myapp                             "docker-entrypoint.s…"   36 seconds ago   Exited (0) 21 seconds ago             pensive_volhard
+bfdd1ed08d24   myapp                             "docker-entrypoint.s…"   50 seconds ago   Exited (0) 48 seconds ago             great_taussig
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago     Exited (0) 3 months ago               Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago     Exited (0) 3 months ago               welcome-to-docker
+
+C:\Users\isubh\dockertest>docker rm c95
+c95
+
+C:\Users\isubh\dockertest>docker rm bf
+bf
+
+C:\Users\isubh\dockertest>docker run -it myapp
+Hello World
+
+C:\Users\isubh\dockertest>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS                      PORTS     NAMES
+526973706b30   myapp                             "docker-entrypoint.s…"   41 seconds ago   Exited (0) 39 seconds ago             suspicious_sanderson
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago     Exited (0) 3 months ago               Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago     Exited (0) 3 months ago               welcome-to-docker
+
+C:\Users\isubh\dockertest>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\isubh\dockertest>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+myapp                      latest    3b0ce9d625d4   11 minutes ago   1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago     381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago    29.5MB
+
+C:\Users\isubh\dockertest>docker rm myapp
+Error response from daemon: No such container: myapp
+
+C:\Users\isubh\dockertest>docker rmi myapp
+Error response from daemon: conflict: unable to delete myapp:latest (must be forced) - container 526973706b30 is using its referenced image 3b0ce9d625d4
+
+C:\Users\isubh\dockertest>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+myapp                      latest    3b0ce9d625d4   11 minutes ago   1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago     381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago    29.5MB
+
+C:\Users\isubh\dockertest>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED         STATUS                     PORTS     NAMES
+526973706b30   myapp                             "docker-entrypoint.s…"   2 minutes ago   Exited (0) 2 minutes ago             suspicious_sanderson
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago              Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago    Exited (0) 3 months ago              welcome-to-docker
+
+C:\Users\isubh\dockertest>docker rm 52
+52
+
+C:\Users\isubh\dockertest>docker ps -a
+CONTAINER ID   IMAGE                             COMMAND                  CREATED        STATUS                    PORTS     NAMES
+280f3c11f05d   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago   Exited (0) 3 months ago             Img
+824491328fb9   docker/welcome-to-docker:latest   "/docker-entrypoint.…"   3 months ago   Exited (0) 3 months ago             welcome-to-docker
+
+C:\Users\isubh\dockertest>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\isubh\dockertest>docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+myapp                      latest    3b0ce9d625d4   13 minutes ago   1.61GB
+welcome-to-docker          latest    5b295433f94f   3 months ago     381MB
+docker/welcome-to-docker   latest    eedaff45e3c7   18 months ago    29.5MB
+
+C:\Users\isubh\dockertest>docker rmi myapp
+Untagged: myapp:latest
+Deleted: sha256:3b0ce9d625d4ffc1217808b65a6daf92412c09302ba5188ca7ac7fa4fb0d8ebf
+
+C:\Users\isubh\dockertest>
